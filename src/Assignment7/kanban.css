@@ -1,0 +1,20 @@
+.board {
+  display: flex;
+  gap: 15px;
+  padding: 20px;
+}
+
+.column {
+  width: 30%;
+  background: #f4f4f4;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.task {
+  background: white;
+  padding: 8px;
+  margin-bottom: 8px;
+  cursor: grab;
+  border: 1px solid #ddd;
+}
