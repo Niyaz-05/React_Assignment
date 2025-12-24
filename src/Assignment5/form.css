@@ -1,0 +1,35 @@
+.form-container {
+  width: 350px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+}
+
+input {
+  width: 100%;
+  margin: 5px 0;
+  padding: 8px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+.progress {
+  margin-bottom: 10px;
+}
+
+.bar {
+  height: 6px;
+  background: #ddd;
+}
+
+.fill {
+  height: 6px;
+  background: #4caf50;
+}
+
+.buttons {
+  margin-top: 10px;
+}
