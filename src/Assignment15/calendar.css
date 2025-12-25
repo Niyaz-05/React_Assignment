@@ -1,0 +1,20 @@
+.calendar-container {
+  max-width: 500px;
+  margin: auto;
+}
+
+.event-form input {
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.event {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.error {
+  color: red;
+}
