@@ -1,0 +1,31 @@
+.quiz-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+.timer {
+  font-weight: bold;
+  color: red;
+}
+
+.question-card {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.option {
+  display: block;
+  margin: 5px 0;
+}
+
+button {
+  margin-top: 20px;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.result {
+  text-align: center;
+}
