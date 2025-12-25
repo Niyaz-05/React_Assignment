@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f6f8;
+}
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 240px;
+  background: #1e293b;
+  color: white;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.sidebar button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 8px;
+  border: none;
+  background: #334155;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: left;
+}
+
+.sidebar button:hover {
+  background: #475569;
+}
+
+.sidebar button.active {
+  background: #38bdf8;
+  color: black;
+  font-weight: bold;
+}
+
+/* MAIN CONTENT */
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.content h1 {
+  margin-bottom: 15px;
+}
+
+.assignment-box {
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+  min-height: 80vh;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}

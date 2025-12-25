@@ -1,5 +1,7 @@
-import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import React, { useState } from "react";
+import "./App.css";
+import { MemoryRouter } from "react-router-dom";
+
 
 /* Assignment 1 */
 import { CourseProvider } from "./Assignment1/hooks/CourseContext";
@@ -18,103 +20,135 @@ import Assignment4Main from "./Assignment4/MainPage";
 /* Assignment 5 */
 import Assignment5Main from "./Assignment5/MainPage";
 
-/* Assignment 6*/ 
+/* Assignment 6 */
 import Assignment6Demo from "./Assignment6/Demo";
 
-/* Assignment 7*/
+/* Assignment 7 */
 import Assignment7Main from "./Assignment7/MainPage";
 
-/* Assignment 8*/ 
-import Assignment8Main from "./Assignment8/MainPage"
+/* Assignment 8 */
 import { ThemeProvider } from "./Assignment8/ThemeContext";
+import Assignment8Main from "./Assignment8/MainPage";
 
-/* Assignment 9*/ 
+/* Assignment 9 */
 import Assignment9Main from "./Assignment9/MainPage";
 
-/* Assignment 10*/
+/* Assignment 10 */
 import { NotificationProvider } from "./Assignment10/NotificationContext";
 import Assignment10Main from "./Assignment10/MainPage";
 
+/* Assignment 11 */
+import Assignment11Main from "./Assignment11/MainPage";
 
+/* Assignment 12 */
+import Assignment12Main from "./Assignment12/MainPage";
+
+/* Assignment 13 */
+import Assignment13Main from "./Assignment13/MainPage";
+
+/* Assignment 14 */
+import Assignment14Main from "./Assignment14/MainPage";
+
+/* Assignment 15 */
+import Assignment15Main from "./Assignment15/MainPage";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
+  const [active, setActive] = useState(1);
 
-        {/* Default */}
-        <Route path="/" element={<Navigate to="/assignment1" />} />
+  const renderAssignment = () => {
+    switch (active) {
+      case 1:
+        return (
+          <CourseProvider>
+            <Assignment1Main />
+          </CourseProvider>
+        );
 
-        {/* Assignment 1 */}
-        <Route
-          path="/assignment1"
-          element={
-            <CourseProvider>
-              <Assignment1Main />
-            </CourseProvider>
-          }
-        />
-
-        {/* Assignment 2 */}
-        <Route
-          path="/assignment2/*"
-          element={
-            <AuthProvider>
+      case 2:
+        return (
+          <AuthProvider>
+            <MemoryRouter initialEntries={["/login"]}>
               <Assignment2Main />
-            </AuthProvider>
-          }
-        />
-
-        {/* Assignment 3 */}
-        <Route
-          path="/assignment3"
-          element={<Assignment3Main />}
-        />
-
-        {/* Assignment 4 */}
-        <Route
-          path="/assignment4"
-          element={<Assignment4Main />}
-        />
-        {/* Assignment 5 */}
-        <Route
-          path="/assignment5"
-          element={<Assignment5Main/>}
-        />
-        {/* Assignment 6 */}
-        <Route
-          path="/assignment6"
-          element={<Assignment6Demo/>}
-        />
-        {/* Assignment 7 */}
-        <Route
-          path="/assignment7"
-          element={<Assignment7Main/>}
-        />
-        {/* Assignment 8 */}
-        <Route
-          path="/assignment8"
-          element={<ThemeProvider><Assignment8Main /></ThemeProvider>}
-        />
-        {/* Assignment 9 */}
-        <Route 
-          path="/assignment9" 
-          element={<Assignment9Main />} 
-        />
-        {/* Assignment 10 */}
-        <Route
-          path="/assignment10"
-          element={<NotificationProvider><Assignment10Main/></NotificationProvider>}
-        />
+            </MemoryRouter>
+          </AuthProvider>
+        );
 
 
-        {/* Short URL redirects */}
-        <Route path="/admin" element={<Navigate to="/assignment2/admin" />} />
-        <Route path="/teacher" element={<Navigate to="/assignment2/teacher" />} />
-        <Route path="/student" element={<Navigate to="/assignment2/student" />} />
+      case 3:
+        return <Assignment3Main />;
 
-      </Routes>
-    </BrowserRouter>
+      case 4:
+        return <Assignment4Main />;
+
+      case 5:
+        return <Assignment5Main />;
+
+      case 6:
+        return <Assignment6Demo />;
+
+      case 7:
+        return <Assignment7Main />;
+
+      case 8:
+        return (
+          <ThemeProvider>
+            <Assignment8Main />
+          </ThemeProvider>
+        );
+
+      case 9:
+        return <Assignment9Main />;
+
+      case 10:
+        return (
+          <NotificationProvider>
+            <Assignment10Main />
+          </NotificationProvider>
+        );
+
+      case 11:
+        return <Assignment11Main />;
+
+      case 12:
+        return <Assignment12Main />;
+
+      case 13:
+        return <Assignment13Main />;
+
+      case 14:
+        return <Assignment14Main />;
+
+      case 15:
+        return <Assignment15Main />;
+
+      default:
+        return <h2>Select an Assignment</h2>;
+    }
+  };
+
+  return (
+    <div className="app-layout">
+      {/* SIDEBAR */}
+      <aside className="sidebar">
+        <h2>React Assignments</h2>
+
+        {[...Array(15)].map((_, i) => (
+          <button
+            key={i}
+            className={active === i + 1 ? "active" : ""}
+            onClick={() => setActive(i + 1)}
+          >
+            Assignment {i + 1}
+          </button>
+        ))}
+      </aside>
+
+      {/* CONTENT */}
+      <main className="content">
+        <h1>Assignment {active}</h1>
+        <div className="assignment-box">{renderAssignment()}</div>
+      </main>
+    </div>
   );
 }
 
